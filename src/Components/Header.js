@@ -5,6 +5,7 @@ import Dropdown from './Dropdown';
 
 const Header = () => {
   const [dropdown, setDropdown] = useState(false);
+  const toggleDropdown = () => setDropdown(!dropdown)
 
   return (
     <HeaderStyle>
@@ -26,7 +27,7 @@ const Header = () => {
         <img
           src="images/hamburger.svg"
           alt="dropdown"
-          onClick={() => setDropdown(!dropdown)}
+          onClick={toggleDropdown}
         />
       </section>
     </HeaderStyle>
