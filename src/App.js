@@ -1,6 +1,8 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./Pages/MainPage";
+import BookMarkPage from "./Pages/BookMarkPage"
+import ProductListPage from "./Pages/ProductListPage"
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import { useState, useEffect } from "react";
@@ -74,8 +76,8 @@ function App() {
       ))}
       <Routes>
         <Route path="/" element={<MainPage></MainPage>} />
-        <Route path="/" element={<MainPage></MainPage>} />
-        <Route path="/" element={<MainPage></MainPage>} />
+        <Route path="/bookmark" element={<BookMarkPage></BookMarkPage>} />
+        <Route path="/products/list" element={<ProductListPage></ProductListPage>} />
       </Routes>
       <Footer />
     </div>
