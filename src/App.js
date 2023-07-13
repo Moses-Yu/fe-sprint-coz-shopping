@@ -71,7 +71,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {all.map((el) => (
+      {// 테스트코드
+      all.map((el) => (
         <div>{el.title}</div>
       ))}
       <Routes>
