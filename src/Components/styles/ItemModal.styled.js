@@ -19,6 +19,8 @@ const ItemModalStyle = styled.div`
     background-position: center;
     stroke-width: 1px;
     stroke: rgba(0, 0, 0, 0.1);
+
+    z-index: 11;
   }
   .info {
     position: absolute;
@@ -44,6 +46,8 @@ const ItemModalStyle = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+    z-index: 11;
   }
   .close {
     position: absolute;
@@ -52,6 +56,20 @@ const ItemModalStyle = styled.div`
     flex-shrink: 0;
     margin-left: 43.5rem;
     margin-top: 1.5rem;
+  }
+  .shadow {
+    position: absolute;
+    width: 46.5rem;
+    height: 15rem;
+    margin-top: 15rem;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    border-radius: 0 0 0.75rem 0.75rem ;
+    z-index: 10;
   }
 `;
 
