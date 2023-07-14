@@ -1,11 +1,10 @@
-import ItemList from "./ItemList";
+import  ItemList from "./ItemList.js";
 
 export default {
   title: "MyApp/ItemList",
   component: ItemList,
   tags: ["autodocs"],
-  argTypes: {
-  },
+  argTypes: {},
 };
 
 export const FourItems = {
@@ -62,4 +61,3 @@ export const FourItems = {
     ],
   },
 };
-

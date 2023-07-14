@@ -6,3 +6,5 @@ const ItemList = styled.div`
   align-items: flex-start;
   gap: 1.5rem;
 `;
+
+export default ItemList

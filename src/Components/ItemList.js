@@ -1,4 +1,5 @@
 import Item from "./Item";
+import React from "react";
 import ItemWrapper from "./styles/ItemList.styled";
 
 const ItemList = ({ list }) => {
