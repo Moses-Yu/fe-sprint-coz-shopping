@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import ItemList from "../Components/ItemList";
 import MainPageStyle from "./styles/MainPage.styled"
 function MainPage({ all }) {
-
+  
   useEffect(() => {
 
   })
