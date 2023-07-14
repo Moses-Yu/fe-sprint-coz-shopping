@@ -3,10 +3,10 @@ import { styled } from "styled-components";
 const MainPageStyle = styled.section`
   width: fit-content;
   margin: 0 auto;
-  margin-top: 1.5rem;
+  margin-top: 3.25rem;
   display: flex;
   flex-direction: column;
-  column-gap: 0.75rem;
+  gap: 0.75rem;
 
   h1 {
     display: flex;
