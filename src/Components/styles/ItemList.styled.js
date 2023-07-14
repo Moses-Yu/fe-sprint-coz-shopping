@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-const ItemList = styled.div`
+const ItemWrapper = styled.div`
   display: flex;
-  width: 70.5rem;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  /* width: 70.5rem; */
   gap: 1.5rem;
 `;
 
-export default ItemList
+export default ItemWrapper

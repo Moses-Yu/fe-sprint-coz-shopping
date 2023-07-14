@@ -1,6 +1,6 @@
 import React from "react";
 import ItemWrapper from "./styles/Item.styled"
-import { EXHIBITION, BRAND, PRODUCT, CATEGORY } from "./Type";
+import { BRAND, PRODUCT, CATEGORY } from "./Type";
 
 const Item = ({ item }) => {
   return (
@@ -13,7 +13,7 @@ const Item = ({ item }) => {
             ? "# " + item.title
             : item.title
         }
-        src={item.type === BRAND ? item.brand_img_url : item.image_url}
+        src={item.type === BRAND ? item.brand_image_url : item.image_url}
       ></img>
       <div className="info">
         <div className="info_top">
