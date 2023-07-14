@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { EXHIBITION, BRAND, PRODUCT, CATEGORY } from "./Type";
 
 const ItemWrapper = styled.div`
   display: flex;
@@ -83,9 +84,9 @@ const Item = ({ item }) => {
     <ItemWrapper>
       <img
         alt={
-          item.type === "Brand"
+          item.type === BRAND
             ? item.brand_name
-            : item.type === "Category"
+            : item.type === CATEGORY
             ? "# " + item.title
             : item.title
         }
@@ -94,16 +95,14 @@ const Item = ({ item }) => {
       <div className="info">
         <div className="info_top">
           <div className="top_left">
-            {item.type === "Brand"
+            {item.type === BRAND
               ? item.brand_name
-              : item.type === "Category"
+              : item.type === CATEGORY
               ? "# " + item.title
               : item.title}
           </div>
-          <div
-            className={`top_right ${item.type === "Brand" ? "brand" : null}`}
-          >
-            {item.type === "Brand"
+          <div className={`top_right ${item.type === BRAND ? "brand" : null}`}>
+            {item.type === BRAND
               ? "관심고객수"
               : item.discountPercentage
               ? item.discountPercentage + "%"
@@ -113,9 +112,9 @@ const Item = ({ item }) => {
         <div className="info_bottom">
           <div className="bottom_left">{item.sub_title}</div>
           <div className="bottom_right">
-            {item.type === "Brand"
+            {item.type === BRAND
               ? item.follower
-              : item.type === "Product"
+              : item.type === PRODUCT
               ? item.price + "원"
               : null}
           </div>
