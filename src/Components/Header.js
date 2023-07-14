@@ -1,4 +1,4 @@
-import HeaderStyle from './Header_styled'
+import HeaderStyle from './styles/Header_styled'
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from './Dropdown';

@@ -1,5 +1,5 @@
 import React from "react";
-import DropdownStyle from "./Dropdown_styled";
+import DropdownStyle from "./styles/Dropdown_styled";
 import { Link } from "react-router-dom";
 
 const Dropdown = () => {

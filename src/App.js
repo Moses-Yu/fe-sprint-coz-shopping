@@ -7,6 +7,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { EXHIBITION, PRODUCT, BRAND, CATEGORY } from "./Components/Type";
 
 function App() {
   const [all, setAll] = useState([]);
@@ -41,16 +42,16 @@ function App() {
       all.forEach((el) => {
         const type = el.type;
         switch (type) {
-          case "Product":
+          case PRODUCT:
             p.push(el)
             break;
-          case "Exhibition":
+          case EXHIBITION:
             e.push(el)
             break;
-          case "Brand":
+          case BRAND:
             b.push(el)
             break;
-          case "Category":
+          case CATEGORY:
             c.push(el)
             break;
           default:
