@@ -90,7 +90,7 @@ const Item = ({ item }) => {
             ? "# " + item.title
             : item.title
         }
-        src={item.image_url}
+        src={item.type === BRAND ? item.brand_img_url : item.image_url}
       ></img>
       <div className="info">
         <div className="info_top">
