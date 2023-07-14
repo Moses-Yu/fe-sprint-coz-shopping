@@ -12,6 +12,8 @@ const FooterStyle = styled.footer`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: #fff;
 
+  margin-top: 1.5rem;
+
   div {
     display: flex;
     width: fit-content;
