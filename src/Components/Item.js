@@ -45,7 +45,7 @@ const Item = ({ item }) => {
     setLoaded(false);
     sortData();
     setLoaded(true);
-  });
+  },[item]);
 
   return (
     <>
