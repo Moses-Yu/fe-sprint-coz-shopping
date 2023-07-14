@@ -72,12 +72,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {// 테스트코드
-      all.map((el) => (
-        <div>{el.title}</div>
-      ))}
       <Routes>
-        <Route path="/" element={<MainPage></MainPage>} />
+        <Route path="/" element={<MainPage all={all}></MainPage>} />
         <Route path="/bookmark" element={<BookMarkPage></BookMarkPage>} />
         <Route path="/products/list" element={<ProductListPage></ProductListPage>} />
       </Routes>
