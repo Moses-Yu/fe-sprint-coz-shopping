@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import ItemWrapper from "./styles/Item.styled";
 import { BRAND, PRODUCT, CATEGORY } from "./Type";
 import ItemModal from "./ItemModal";
+import BookMark from "./BookMark";
 
-const Item = ({ item }) => {
+const Item = ({ item, bookMarks, setBookMarks }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [info, setInfo] = useState({});
   const [loaded, setLoaded] = useState(false);
 
-  const handleClick = () => setModalIsOpen(true)
+  const handleClick = () => setModalIsOpen(true);
 
   const sortData = () => {
     const info = {};
@@ -45,7 +46,7 @@ const Item = ({ item }) => {
     setLoaded(false);
     sortData();
     setLoaded(true);
-  },[item]);
+  }, [item]);
 
   return (
     <>
@@ -64,6 +65,11 @@ const Item = ({ item }) => {
               <div className="bottom_right">{info.bottom_right_text}</div>
             </div>
           </div>
+          <BookMark
+            item={item}
+            bookMarks={bookMarks}
+            setBookMarks={setBookMarks}
+          ></BookMark>
         </ItemWrapper>
       ) : null}
       {modalIsOpen && (
@@ -71,6 +77,9 @@ const Item = ({ item }) => {
           name={info.name}
           image_url={info.img_url}
           setModalIsOpen={setModalIsOpen}
+          item={item}
+          bookMarks={bookMarks}
+          setBookMarks={setBookMarks}
         />
       )}
     </>

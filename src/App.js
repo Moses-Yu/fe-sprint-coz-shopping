@@ -1,8 +1,8 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./Pages/MainPage";
-import BookMarkPage from "./Pages/BookMarkPage"
-import ProductListPage from "./Pages/ProductListPage"
+import BookMarkPage from "./Pages/BookMarkPage";
+import ProductListPage from "./Pages/ProductListPage";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import { useState, useEffect } from "react";
@@ -15,54 +15,61 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [exhibitions, setExhibitions] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [bookMarks, setBookMarks] = useState([]);
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("bookmarks"))) {
+      setBookMarks([...JSON.parse(localStorage.getItem("bookmarks"))]);
+    }
+  }, []);
 
   const requestInfo = (count) => {
     axios({
       method: "get",
       url: "http://cozshopping.codestates-seb.link/api/v1/products",
-      params:{
-        count
-      }
+      params: {
+        count,
+      },
     }).then(function (response) {
       setAll(response.data);
       console.log(response.data);
     });
-  }
-  
+  };
+
   useEffect(() => {
-    requestInfo(10)
+    requestInfo();
   }, []);
 
   useEffect(() => {
     const filterByType = () => {
-      const p = []
-      const e = []
-      const b = []
-      const c = []
+      const p = [];
+      const e = [];
+      const b = [];
+      const c = [];
       all.forEach((el) => {
         const type = el.type;
         switch (type) {
           case PRODUCT:
-            p.push(el)
+            p.push(el);
             break;
           case EXHIBITION:
-            e.push(el)
+            e.push(el);
             break;
           case BRAND:
-            b.push(el)
+            b.push(el);
             break;
           case CATEGORY:
-            c.push(el)
+            c.push(el);
             break;
           default:
             break;
         }
       });
 
-      setProducts(p)
-      setCategories(c)
-      setExhibitions(e)
-      setBrands(b)
+      setProducts(p);
+      setCategories(c);
+      setExhibitions(e);
+      setBrands(b);
     };
 
     filterByType();
@@ -73,9 +80,21 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<MainPage all={all}></MainPage>} />
+        <Route
+          path="/"
+          element={
+            <MainPage
+              all={all}
+              bookMarks={bookMarks}
+              setBookMarks={setBookMarks}
+            ></MainPage>
+          }
+        />
         <Route path="/bookmark" element={<BookMarkPage></BookMarkPage>} />
-        <Route path="/products/list" element={<ProductListPage></ProductListPage>} />
+        <Route
+          path="/products/list"
+          element={<ProductListPage></ProductListPage>}
+        />
       </Routes>
       <Footer />
     </div>

@@ -1,19 +1,20 @@
 import styled from "styled-components";
-const ItemModalStyle = styled.div`
+
+export const ItemModalStyle = styled.div`
   background: rgba(255, 255, 255, 0.4);
   position: fixed;
   inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  z-index: 9;
   .container {
     display: flex;
     width: 46.5rem;
     height: 30rem;
     border-radius: 0.75rem;
     box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.5);
-    background-image: url(${(props) => props.image_url});
+    background-image: url(${(props) => props.$image_url});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -68,9 +69,7 @@ const ItemModalStyle = styled.div`
       rgba(0, 0, 0, 0.1) 50%,
       rgba(0, 0, 0, 0.5) 100%
     );
-    border-radius: 0 0 0.75rem 0.75rem ;
+    border-radius: 0 0 0.75rem 0.75rem;
     z-index: 10;
   }
 `;
-
-export default ItemModalStyle;

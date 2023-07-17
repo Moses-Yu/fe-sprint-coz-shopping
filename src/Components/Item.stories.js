@@ -4,11 +4,15 @@ export default {
   title: "MyApp/Item",
   component: Item,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    bookMarks: "Array",
+    setBookMarks: "function"
+  },
 };
 
 export const Product = {
   args: {
+    bookMarks: [],
     item: {
       id: 0,
       type: "Product",
