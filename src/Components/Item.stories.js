@@ -4,11 +4,15 @@ export default {
   title: "MyApp/Item",
   component: Item,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    bookMarks: "Array",
+    setBookMarks: "function"
+  },
 };
 
 export const Product = {
   args: {
+    bookMarks: [],
     item: {
       id: 0,
       type: "Product",
@@ -33,7 +37,7 @@ export const Category = {
       brand_name: null,
       price: null,
       discountPercentage: null,
-      image_url: "ramdomimage/2",
+      image_url: "/images/randomimage/1.png",
       brand_image_url: null,
       follower: null,
     },
@@ -50,7 +54,7 @@ export const Brand = {
       price: null,
       discountPercentage: null,
       image_url: null,
-      brand_image_url: "ramdomimage/4",
+      brand_image_url: "/images/randomimage/1.png",
       follower: 2143,
     },
   },
@@ -65,7 +69,7 @@ export const Exhibition = {
       brand_name: null,
       price: null,
       discountPercentage: null,
-      image_url: "ramdomimage/3",
+      image_url: "/images/randomimage/1.png",
       brand_image_url: null,
       follower: null,
     },

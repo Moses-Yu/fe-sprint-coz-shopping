@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Item = styled.div`
   display: flex;
   width: 16.5rem;
-  height: 16.5rem;
+  
   padding-bottom: 0px;
   flex-direction: column;
   align-items: flex-start;
