@@ -8,6 +8,8 @@ import Footer from "./Components/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { EXHIBITION, PRODUCT, BRAND, CATEGORY } from "./Components/Type";
+import StyledContainer from "./Components/styles/StyledContainer.styled";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [all, setAll] = useState([]);
@@ -96,6 +98,18 @@ function App() {
           element={<ProductListPage></ProductListPage>}
         />
       </Routes>
+      <StyledContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      ></StyledContainer>
       <Footer />
     </div>
   );
