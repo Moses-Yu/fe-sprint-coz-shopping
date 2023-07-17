@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { toast } from "react-toastify";
+import StyledMsg from "./styles/ToastMsg.styled";
+
 const BookMarkStyle = styled.svg`
   position: absolute;
-  margin-left: ${props => props.$isModal===true ? "1.5rem" : "14.25rem"};
-  margin-top: ${props => props.$isModal===true ? "26.81rem" : "10.87rem"};
-    z-index: ${props => props.$isModal===true ? 15 : 0};
+  margin-left: ${(props) => (props.$isModal === true ? "1.5rem" : "14.25rem")};
+  margin-top: ${(props) => (props.$isModal === true ? "26.81rem" : "10.87rem")};
+  z-index: ${(props) => (props.$isModal === true ? 15 : 0)};
   width: 1.5rem;
   height: 1.5rem;
   flex-shrink: 0;
@@ -13,9 +16,26 @@ const BookMarkStyle = styled.svg`
   &:hover {
     cursor: pointer;
   }
+
+  .star {
+    margin-right: 0.5rem;
+  }
 `;
 const BookMark = ({ item, bookMarks, setBookMarks, $isModal }) => {
   const [checked, setChecked] = useState(false);
+ 
+  const notify = (isAdd) => {
+    toast(<StyledMsg isAdd={isAdd}/>, {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   const addBookMark = (item) => {
     let arr = [];
     if (JSON.parse(localStorage.getItem("bookmarks"))) {
@@ -23,6 +43,7 @@ const BookMark = ({ item, bookMarks, setBookMarks, $isModal }) => {
     }
     arr.unshift(item);
     localStorage.setItem("bookmarks", JSON.stringify(arr));
+    notify(true);
     setBookMarks(arr);
   };
   const removeBookMark = (item) => {
@@ -32,6 +53,7 @@ const BookMark = ({ item, bookMarks, setBookMarks, $isModal }) => {
     }
     arr = arr.filter((el) => el.id !== item.id);
     localStorage.setItem("bookmarks", JSON.stringify(arr));
+    notify(false);
     setBookMarks(arr);
   };
   const handleClick = (e) => {
@@ -55,7 +77,7 @@ const BookMark = ({ item, bookMarks, setBookMarks, $isModal }) => {
   }, [bookMarks, item.id]);
   return (
     <BookMarkStyle
-        $isModal={$isModal ? true : false}
+      $isModal={$isModal ? true : false}
       onClick={handleClick}
       xmlns="http://www.w3.org/2000/svg"
       width="32"
